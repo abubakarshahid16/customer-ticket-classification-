@@ -42,14 +42,7 @@ Ticket Subject: The target label for classification, with 16 possible classes.
 
 The goal is to predict the Ticket Subject based on the other features, particularly leveraging the Ticket Description.
 
-Project Setup
-Clone the repository:
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/customer-ticket-classification.git
-cd customer-ticket-classification
 Install dependencies:
 
 Since this project is executed on Google Colab, no need to set up virtual environments. Simply install the required libraries by running the following command in a Colab cell:
