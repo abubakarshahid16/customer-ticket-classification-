@@ -1,148 +1,118 @@
-# customer-ticket-classification-
-Customer Support Ticket Classification
-This repository contains an end-to-end Machine Learning (ML) and Natural Language Processing (NLP) classification pipeline applied to a Customer Support Ticket Dataset. The project covers all stages, from data loading and exploratory data analysis (EDA) to model evaluation, including advanced NLP tasks such as Named Entity Recognition (NER), Topic Modeling, and more. Multiple classifiers are used to achieve top performance, including Logistic Regression, Decision Tree, Naive Bayes, SVM, KNN, and Random Forest.
+# Customer Ticket Classification
 
-Table of Contents
-Dataset Description
+An end-to-end machine-learning and NLP project for classifying customer support tickets by subject. The repository uses a notebook-driven workflow to move from raw ticket data through exploratory analysis, preprocessing, NLP feature work, model comparison, and final evaluation.
 
-Project Setup
+![Pipeline overview](docs/pipeline-overview.svg)
 
-Exploratory Data Analysis (EDA)
+## Overview
 
-Data Preprocessing & Feature Engineering
+This project focuses on predicting the **Ticket Subject** from a support-ticket dataset that contains both structured fields and free-text descriptions. It is designed as a full workflow project rather than a single-model demo, and includes:
 
-NLP Tasks
+- exploratory data analysis
+- data cleaning and preprocessing
+- categorical feature engineering
+- TF-IDF text vectorization
+- multiple classification models
+- extra NLP analysis such as NER, topic modeling, and sentiment analysis
 
-Model Building
+## Dataset
 
-Model Evaluation
+The dataset contains roughly **8,470** customer support tickets and includes fields such as:
 
-Conclusion
+- Ticket ID
+- Product Purchased
+- Ticket Type
+- Ticket Priority
+- Ticket Channel
+- Ticket Status
+- Ticket Description
+- Ticket Subject
 
-Submission
+Target label:
 
-Dataset Description
-The dataset used in this project is a Customer Support Ticket Dataset containing approximately 8,470 rows. It includes the following features:
+- `Ticket Subject` with 16 possible classes
 
-Ticket ID: Numeric identifier for the ticket.
+## Workflow
 
-Product Purchased: Categorical feature indicating the product.
+The notebook-based pipeline covers:
 
-Ticket Type: Categorical feature for ticket type.
+1. loading and inspecting the dataset
+2. exploratory data analysis across categorical, numerical, and text fields
+3. cleaning and normalizing ticket descriptions
+4. encoding structured features
+5. converting text with TF-IDF
+6. running additional NLP analysis
+7. training multiple classifiers
+8. comparing metrics and selecting the strongest model
 
-Ticket Priority: Categorical feature for the priority of the ticket.
+## NLP Tasks Included
 
-Ticket Channel: Categorical feature for the support channel used.
+- Named Entity Recognition with spaCy
+- Topic Modeling with LDA
+- Sentiment Analysis with TextBlob
+- Text vectorization with TF-IDF
 
-Ticket Status: Categorical feature for ticket status.
+These tasks make the repo stronger than a basic “fit one classifier” notebook because they show broader NLP reasoning around the dataset.
 
-Ticket Description: Text feature describing the issue raised in the ticket.
+## Models Compared
 
-Ticket Subject: The target label for classification, with 16 possible classes.
+The project evaluates several classical ML models:
 
-The goal is to predict the Ticket Subject based on the other features, particularly leveraging the Ticket Description.
+- Logistic Regression
+- Decision Tree
+- Naive Bayes
+- Support Vector Machine
+- K-Nearest Neighbors
+- Random Forest
 
+According to the project notes, **Random Forest** was the best-performing model in the final comparison.
 
-Install dependencies:
+## Repository Contents
 
-Since this project is executed on Google Colab, no need to set up virtual environments. Simply install the required libraries by running the following command in a Colab cell:
+- `customer-ticket-classification.ipynb`: main notebook with the end-to-end workflow
+- `customer_support_tickets.csv`: dataset used in the analysis
+- `docs/pipeline-overview.svg`: high-level workflow visual
 
-bash
-Copy
-Edit
-!pip install -r requirements.txt
-For specific NLP tasks, spaCy is used, and the model is downloaded as:
+## Running the Project
 
-bash
-Copy
-Edit
-!python -m spacy download en_core_web_sm
-Exploratory Data Analysis (EDA)
-The EDA involves visualizing both numerical and categorical features to understand data distribution and patterns.
+This work was originally structured for **Google Colab**, so the simplest way to run it is:
 
-Numerical Features: We explored numerical columns (like Ticket ID) using histograms and boxplots.
+1. open `customer-ticket-classification.ipynb` in Google Colab or Jupyter
+2. install the required libraries
+3. run notebook cells sequentially
 
-Categorical Features: We visualized categorical features (like Product Purchased, Ticket Type) using bar charts to show their frequency distribution.
+### Example dependency setup
 
-Text Feature Analysis:
+```bash
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
 
-Word Cloud: We generated a word cloud to visualize the most common terms in Ticket Description.
+If you are running it in Colab, those commands can be placed into notebook cells.
 
-Length Distribution: We plotted the distribution of the number of words per description to understand the text data better.
+## Key Project Strengths
 
-Sentiment Distribution: We used sentiment analysis to plot the distribution of sentiment in the dataset.
+- combines structured features and text features
+- demonstrates multiple NLP techniques in one workflow
+- compares several classical ML baselines
+- shows end-to-end thinking from EDA to evaluation
+- uses a realistic customer-support use case
 
-Data Preprocessing & Feature Engineering
-Missing Values: Imputed missing values using suitable techniques for categorical and numerical columns.
+## Why This Project Matters
 
-Outlier Treatment: Outliers were detected and removed using statistical methods (e.g., IQR).
+This is a useful portfolio project because it demonstrates:
 
-Text Cleaning: Cleaned the Ticket Description by:
+- practical NLP for customer support automation
+- classification on mixed structured + unstructured data
+- feature engineering beyond raw text only
+- comparative model evaluation
+- notebook-based workflow discipline
 
-Lowercasing all text.
+## Current Repository Status
 
-Removing punctuation and special characters.
+This repo is best understood as a strong analysis and modeling notebook repository rather than a packaged production app. The core value is in the notebook workflow, dataset handling, and comparative NLP/ML pipeline.
 
-Tokenizing text and removing stopwords.
+## Author
 
-Categorical Encoding:
-
-Used Label Encoding for binary categorical features.
-
-Applied One-Hot Encoding for multi-class categorical features.
-
-Scaling Numerical Features: Normalized numerical features using MinMax Scaling.
-
-NLP Tasks
-In this section, we demonstrated various NLP tasks:
-
-Named Entity Recognition (NER):
-
-Extracted named entities using spaCy and discussed how they could improve classification (e.g., identifying product names and issue types).
-
-Topic Modeling:
-
-Applied Latent Dirichlet Allocation (LDA) to group the ticket descriptions into topics, helping us understand common issues within tickets.
-
-Sentiment Analysis:
-
-Performed sentiment analysis using TextBlob and incorporated sentiment scores as additional features in the classification model.
-
-Text Vectorization:
-
-Converted the Ticket Description text data into numerical format using TF-IDF Vectorizer.
-
-Model Building
-We built several classification models and evaluated their performance:
-
-Logistic Regression
-
-Decision Tree
-
-Naive Bayes
-
-Support Vector Machine (SVM)
-
-K-Nearest Neighbors (KNN)
-
-Random Forest (optional, for improved performance)
-
-Each model was trained on the preprocessed dataset, and hyperparameters were tuned to achieve optimal results.
-
-Model Evaluation
-The models were evaluated based on their confusion matrix and classification report, which includes precision, recall, and F1-score for each class.
-
-We compared the results of different models before and after preprocessing steps like text cleaning and feature scaling.
-
-Best Performing Model: After evaluation, the Random Forest classifier provided the best performance in terms of classification accuracy.
-
-Conclusion
-The classification pipeline successfully predicted the Ticket Subject based on various features, with an emphasis on the Ticket Description. The Random Forest classifier, combined with proper text preprocessing (e.g., tokenization, lemmatization) and feature engineering (e.g., sentiment scores), performed the best.
-
-Key takeaways:
-
-Textual data plays a crucial role in ticket classification.
-
-Advanced NLP tasks like NER and Sentiment Analysis can significantly improve model performance.
-
-Random Forest achieved the highest accuracy due to its ensemble nature and ability to handle diverse features.
+Abubakar Shahid  
+GitHub: <https://github.com/abubakarshahid16>

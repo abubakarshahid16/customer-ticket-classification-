@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Customer Ticket Classification Pipeline</title>
+  <desc id="desc">A high-level diagram showing ticket data flowing through preprocessing, NLP analysis, model training, and evaluation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7f9fc"/>
+      <stop offset="100%" stop-color="#eef7f4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f9fcff"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #143b57; }
+      .subtitle { font: 400 17px 'Segoe UI', Arial, sans-serif; fill: #537188; }
+      .card-title { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #143b57; }
+      .card-text { font: 400 15px 'Segoe UI', Arial, sans-serif; fill: #38566e; }
+      .small { font: 400 14px 'Segoe UI', Arial, sans-serif; fill: #5c788c; }
+      .outline { stroke: #d6e2eb; stroke-width: 2; }
+      .line { stroke: #64859a; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64859a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="680" fill="url(#bg)"/>
+
+  <text x="60" y="70" class="title">Customer Ticket Classification</text>
+  <text x="60" y="105" class="subtitle">Notebook-driven NLP and machine-learning pipeline for support ticket subject prediction.</text>
+
+  <rect x="60" y="180" rx="22" ry="22" width="240" height="180" fill="url(#card)" class="outline"/>
+  <text x="95" y="235" class="card-title">Dataset</text>
+  <text x="95" y="270" class="card-text">Customer support tickets</text>
+  <text x="95" y="295" class="card-text">Structured categorical fields</text>
+  <text x="95" y="320" class="card-text">Ticket descriptions and labels</text>
+
+  <rect x="360" y="140" rx="22" ry="22" width="280" height="260" fill="url(#card)" class="outline"/>
+  <text x="395" y="195" class="card-title">Preprocessing</text>
+  <text x="395" y="230" class="card-text">Missing-value handling</text>
+  <text x="395" y="255" class="card-text">Text cleaning and normalization</text>
+  <text x="395" y="280" class="card-text">Categorical encoding</text>
+  <text x="395" y="305" class="card-text">Feature scaling</text>
+  <text x="395" y="330" class="card-text">TF-IDF vectorization</text>
+
+  <rect x="700" y="100" rx="22" ry="22" width="300" height="170" fill="url(#card)" class="outline"/>
+  <text x="740" y="155" class="card-title">NLP Analysis</text>
+  <text x="740" y="190" class="card-text">Named Entity Recognition</text>
+  <text x="740" y="215" class="card-text">Topic Modeling</text>
+  <text x="740" y="240" class="card-text">Sentiment Analysis</text>
+
+  <rect x="700" y="320" rx="22" ry="22" width="300" height="210" fill="url(#card)" class="outline"/>
+  <text x="740" y="375" class="card-title">Modeling</text>
+  <text x="740" y="410" class="card-text">Logistic Regression</text>
+  <text x="740" y="435" class="card-text">Decision Tree</text>
+  <text x="740" y="460" class="card-text">Naive Bayes, SVM, KNN</text>
+  <text x="740" y="485" class="card-text">Random Forest comparison</text>
+
+  <rect x="1040" y="220" rx="22" ry="22" width="120" height="180" fill="url(#card)" class="outline"/>
+  <text x="1063" y="275" class="card-title">Output</text>
+  <text x="1063" y="310" class="card-text">Best model</text>
+  <text x="1063" y="335" class="card-text">Metrics</text>
+  <text x="1063" y="360" class="card-text">Insights</text>
+
+  <path d="M300 270 L360 270" class="line"/>
+  <path d="M640 230 L700 185" class="line"/>
+  <path d="M640 320 L700 425" class="line"/>
+  <path d="M1000 425 L1040 310" class="line"/>
+
+  <text x="60" y="630" class="small">The repo centers on an end-to-end notebook workflow rather than a packaged application service.</text>
+</svg>
